@@ -8,7 +8,10 @@
       "Bash(copy:*)",
       "Bash(cmd /c \"copy 1112.html 1112_backup.html\")",
       "Bash(cmd /c \"start test.html\")",
-      "Bash(cmd /c \"start 1112.html\")"
+      "Bash(cmd /c \"start 1112.html\")",
+      "Bash(cmd /c \"copy 1112.html index.html\")",
+      "Bash(ren:*)",
+      "Bash(mv:*)"
     ],
     "deny": [],
     "ask": []
