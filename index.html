@@ -1606,6 +1606,43 @@
             </select>
           </div>
           <div class="full">
+            <label>관심 서비스 (복수 선택)</label>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600">
+                <input type="checkbox" name="services" value="정부지원금" style="width:18px;height:18px;cursor:pointer">
+                정부지원금
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600">
+                <input type="checkbox" name="services" value="정책자금" style="width:18px;height:18px;cursor:pointer">
+                정책자금
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600">
+                <input type="checkbox" name="services" value="연구소설립" style="width:18px;height:18px;cursor:pointer">
+                연구소설립
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600">
+                <input type="checkbox" name="services" value="벤처" style="width:18px;height:18px;cursor:pointer">
+                벤처
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600">
+                <input type="checkbox" name="services" value="메인비즈" style="width:18px;height:18px;cursor:pointer">
+                메인비즈
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600">
+                <input type="checkbox" name="services" value="시설자금" style="width:18px;height:18px;cursor:pointer">
+                시설자금
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600">
+                <input type="checkbox" name="services" value="스마트공장" style="width:18px;height:18px;cursor:pointer">
+                스마트공장
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600">
+                <input type="checkbox" name="services" value="MVP개발" style="width:18px;height:18px;cursor:pointer">
+                MVP개발
+              </label>
+            </div>
+          </div>
+          <div class="full">
             <label for="message">문의사항</label>
             <textarea id="message" name="message" placeholder="필요하신 지원/현황을 간단히 적어주세요."></textarea>
           </div>
@@ -1794,6 +1831,11 @@
         e.preventDefault();
 
         const formData = new FormData(form);
+
+        // 선택된 관심 서비스들 수집
+        const selectedServices = Array.from(document.querySelectorAll('input[name="services"]:checked'))
+          .map(checkbox => checkbox.value);
+
         const data = {
           name: formData.get('name'),
           phone: formData.get('phone'),
@@ -1801,6 +1843,7 @@
           company: formData.get('company'),
           bizType: formData.get('bizType'),
           industry: formData.get('industry'),
+          services: selectedServices.join(', '),
           message: formData.get('message'),
           consent: document.getElementById('consent').checked
         };
