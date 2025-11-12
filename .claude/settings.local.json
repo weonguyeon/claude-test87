@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start 1112.html)",
+      "Bash(dir:*)",
+      "Bash(explorer:*)",
+      "Bash(cmd /c start 1112.html)",
+      "Bash(copy:*)",
+      "Bash(cmd /c \"copy 1112.html 1112_backup.html\")",
+      "Bash(cmd /c \"start test.html\")",
+      "Bash(cmd /c \"start 1112.html\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
